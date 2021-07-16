@@ -1,0 +1,16 @@
+.complete-sign{
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  background-color: #2E9AFE;
+  border: solid 1px #E6E6E6;
+  border-radius: 8px; /* 半径が8pxの角丸 */
+  color: white;
+  font-size: 30px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.complete-p{
+  padding: 5px 0 0 0px;
+}
