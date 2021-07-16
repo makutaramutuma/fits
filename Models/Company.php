@@ -60,7 +60,7 @@ class Company
   public static function updateCompany($companyDate)
   {
     $sql = 'UPDATE company SET
-              company_name = :company_name, company_url = :company_url, tel = :tel, postal_code = :postal_code, company_adress = :company_adress, email = :email, free_text = :free_text
+              name = :name, mail = :mail, tel = :tel, image = :iamge, profile = :profile,password = :password
             WHERE
               id = :id';
 
@@ -90,23 +90,18 @@ class Company
     }
   }
 
-  /**
-   * ログイン処理
-   * @param string $email
-   * @param string $password
-   * @return bool $result
-   */
+ 
   public static function login($email, $password)
   {
     $result = false;
-    // 会社をemailで検索
+    
     $company = self::getCompanyByEmail($email);
     if(!$company) {
       $_SESSION['msg'] = 'メールアドレスまたはパスワードが一致しません。';
       return $result;
     }
 
-    // パスワードの照会
+    
     if(password_verify($password, $company['password'])) {
       session_regenerate_id(true);
       $_SESSION['login_company'] = $company;
